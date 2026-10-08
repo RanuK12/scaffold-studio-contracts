@@ -25,12 +25,10 @@ jobs:
             ~/.cargo/git/db/
             target/
           key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
-      - uses: actions/cache@v3
+      - uses: actions/setup-node@v4
         with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
+          node-version: 22
+          cache: 'npm'
       - run: rustup target add wasm32v1-none
       - name: Start Stellar Quickstart
         uses: stellar/quickstart@main

@@ -46,3 +46,4 @@ src/contracts/*
 
 # Claude Code context
 CLAUDE.md
+.aider*
